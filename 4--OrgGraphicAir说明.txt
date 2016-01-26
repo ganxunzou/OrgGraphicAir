@@ -1,0 +1,49 @@
+这是一个绿色的包，直接解压即可用。核心数据在程序根目录的Data.xml中定义。
+
+==========================================
+Data.xml说明
+==========================================
+--- <Fonts/>节点说明
+    -- 示例：<Font id="10000" size="10" color="0xdb8d4f" text="单喆憨"/>
+    -- 属性说明：
+       -- id		唯一标识
+       -- size		文字大小
+       -- color		文字颜色
+       -- text		文本内容
+
+--- <Nodes> 节点说明
+    -- 描述：Node是界面中的角色节点，有“人”和“圆圈”两种分类
+    -- 示例：<Node id="10016" type="person" head="man" name="10016" job="" x="400" y="800" />
+             <Node id="20000" type="circle" bgColor="0x162c53" borderColor="0x162c53" radius="45" corp="30000" desc="40000" x="360" y="255"/>
+    -- 属性说明
+       -- id		唯一标识
+       -- type		角色类型，person是人，circle是圆圈
+       -- head		头像，man是男头像，female是女头像（角色是人）
+       -- name		姓名（角色是人）
+       -- job		职位（角色是人）
+       -- bgColor	背景颜色（角色是圆圈）
+       -- borderColor	边框颜色（角色是圆圈）
+       -- radius	半径（角色是圆圈）
+       -- corp		公司名称
+       -- desc		公司描述
+       -- x		x坐标
+       -- y		y坐标
+
+
+--- <Lines> 节点说明
+   -- 描述：Line节点是负责将两个Node节点进行连线，线条有粗细、是否开始和结束箭头和线条上下方文字描述属性。
+   -- 示例：<Line id="26" fromNode="20012" fx="58" fy="80" toNode="10011" tx="12" ty="20" color="0x235F7B" thickness="1" endArrow="true" topDesc="50003" bottomDesc="50004"/>
+   -- 属性说明：
+      -- id		唯一标识
+      -- fromNode	开始节点
+      -- fx		线条在开始节点中的X坐标
+      -- fy		线条在开始节点中的Y坐标
+      -- toNode		结束节点
+      -- tx		线条在结束节点中的X坐标
+      -- ty		线条在结束节点中的Y坐标
+      -- color		线条颜色
+      -- thickness	线条宽度
+      -- endArrow	是否有结束箭头
+      -- startArrow	是否有开始箭头
+      -- topDesc	线条上方描述
+      -- buttomDesc	线条下方描述

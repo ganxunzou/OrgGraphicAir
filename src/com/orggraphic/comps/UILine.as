@@ -31,6 +31,7 @@ package com.orggraphic.comps
 		private var _lineVo:LineVO;
 		//箭头角度
 		private var arrowJiaoDu:Number=30;
+		private var arrowLen:Number = 10;
 		
 		public function UILine()
 		{
@@ -146,7 +147,7 @@ package com.orggraphic.comps
 			if(bottomLbl && lineVo.bottomDesc)
 			{
 				var tM1:TextLineMetrics = measureText(lineVo.bottomDesc.text);
-				var jz1:Number = (xBian - tM.width)/2;
+				var jz1:Number = (xBian - tM1.width)/2;
 				bottomLbl.rotation = 90 + jiaoDu;
 				bottomLbl.x = -(Math.sin(jiaoDu * (Math.PI/180)) * jz1) ;
 				bottomLbl.y = (Math.cos(jiaoDu * (Math.PI/180)) * jz1) ;
@@ -174,14 +175,13 @@ package com.orggraphic.comps
 			if(bottomLbl && lineVo.bottomDesc)
 			{
 				var tM1:TextLineMetrics = measureText(lineVo.bottomDesc.text);
-				var jz1:Number = (xBian - tM.width)/2;
+				var jz1:Number = (xBian - tM1.width)/2;
 				bottomLbl.rotation = 90 - jiaoDu;
 				bottomLbl.x = (Math.sin(jiaoDu * (Math.PI/180)) * jz1) ;
 				bottomLbl.y = (Math.cos(jiaoDu * (Math.PI/180)) * jz1) ;
 			}
 			
 			//绘制箭头
-			var arrowLen:Number = 10;//箭头长度
 			g.moveTo(w,h);
 			//左下角线
 			g.beginFill(uint(lineVo.color));

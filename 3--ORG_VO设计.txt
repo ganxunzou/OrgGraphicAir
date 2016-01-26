@@ -1,0 +1,63 @@
+抽象VO设计
+
+========================================================
+文字VO （BaseVO）
+========================================================
+属性名称	属性类型	备注
+id		int		主键
+
+
+========================================================
+文字VO （FontVO extends BaseVO）
+========================================================
+属性名称	属性类型	备注
+size		number		文字大小
+color		String		文字颜色
+rotate		number		文字旋转角度
+text		String		文字内容
+
+
+========================================================
+节点VO （NodeVO extends BaseVO）
+========================================================
+属性名称	属性类型	备注
+type		String		类型：人 or 圆圈
+x		number		x坐标
+y		number		y坐标
+
+
+========================================================
+圆圈节点VO （CircleVO extends NodeVO)
+========================================================
+属性名称	属性类型	备注
+bgColor		String		背景色
+borderColor	String		边框色
+radius		number		半径
+corp		FontVO		公司
+desc		FontVO		描述
+
+========================================================
+人节点VO （PersonVO extends NodeVO)
+========================================================
+属性名称	属性类型	备注
+head		String		头像（先简单处理）
+job		FontVO		职位
+name		FontVO		名称
+
+
+========================================================
+线条VO （LineVO extends BaseVO)
+========================================================
+属性名称	属性类型	备注
+id		String		主键
+startArrow	bool		是否有开启箭头
+fromNode	NodeVO		开始节点
+fromX		Number		fromNode节点上的绝对X坐标
+formY		Number		fromNode节点上的绝对Y坐标
+ToNode		NodeVO		结束节点
+ToX		Number		toNode节点上的绝对X坐标
+ToY		Number		toNode节点上的绝对Y坐标
+endArrow	bool		是否有结束箭头
+topDesc		FontVO		顶部描述
+bottomDesc	FontVO		底部描述
+

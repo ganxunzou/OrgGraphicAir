@@ -42,7 +42,7 @@
 //					bottomLbl.rotation = lVo.bottomDesc.rotate;
 					bottomLbl.setStyle("color",lVo.bottomDesc.color);
 					bottomLbl.setStyle("fontSize",lVo.bottomDesc.size);
-					bottomLbl.setStyle("fontWeight",StringUtil.trim(lVo.topDesc.weight)!="blod"?"normal":lVo.topDesc.weight);
+					bottomLbl.setStyle("fontWeight",StringUtil.trim(lVo.bottomDesc.weight)!="blod"?"normal":lVo.bottomDesc.weight);
 				}
 				else
 				{
@@ -52,6 +52,6 @@
 			
 		]]>
 	</fx:Script>
-	<s:Label id="topLbl" />
+	<s:Label id="topLbl"/>
 	<s:Label id="bottomLbl" />
 </s:Skin>
