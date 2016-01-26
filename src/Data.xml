@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<Fonts>
+		<!-- 姓名10000开头 -->
+		<Font id="10000" size="10" color="0xdb8d4f" text="单喆憨"/>
+		<Font id="10001" size="10" color="0xdb8d4f" text="徐斌"/>
+		<Font id="10002" size="10" color="0xdb8d4f" text="张丽"/>
+		<Font id="10003" size="10" color="0xdb8d4f" text="朱俊"/>
+		<Font id="10004" size="10" color="0xdb8d4f" text="林海舟"/>
+		<Font id="10005" size="10" color="0xdb8d4f" text="尹剑侠"/>
+		<Font id="10006" size="10" color="0xdb8d4f" text="刘毅"/>
+		<Font id="10007" size="10" color="0xdb8d4f" text="周文武"/>
+		<Font id="10008" size="10" color="0xdb8d4f" text="郁亮"/>
+		<Font id="10009" size="14" color="0xdb8d4f" text="涂珂"/>
+		
+		<!-- 职位20000开头 -->
+		<Font id="20000" size="10" color="0x385269" text="独立董事"/>
+		<Font id="20001" size="10" color="0x385269" text="监事长"/>
+		<Font id="20002" size="10" color="0x385269" text="监事"/>
+		<Font id="20003" size="10" color="0x385269" text="副总裁"/>
+		<Font id="20004" size="10" color="0x385269" text="董事，副总裁"/>
+		<Font id="20005" size="10" color="0x385269" text="董事"/>
+		<Font id="20006" size="12" color="0x000000" text="董秘,副监事" weight="bold"/>
+		<Font id="20007" size="12" color="0x385269" text="董事" weight="bold"/>
+		
+		<!-- 公司30000开头 -->
+		<Font id="30000" size="10" color="0xffffff" text="上海美特斯邦威服饰有限公司"/>
+		<Font id="30001" size="10" color="0x3E5F6E" text="上海米勒斯迪有限公司"/>
+		<Font id="30002" size="10" color="0x3E5F6E" text="32家美特斯邦威"/>
+		<Font id="30003" size="10" color="0x3E5F6E" text="美特斯邦威子公司"/>
+		<Font id="30004" size="10" color="0x3E5F6E" text="上海XX子公司"/>
+			
+		
+		<!-- 公司描述40000开头 -->
+		<Font id="40000" size="10" color="0xffffff" text="注册资本：252,690万"/>
+		<Font id="40001" size="10" color="0x000000" text="注册资本：5,000万"/>
+		<Font id="40002" size="10" color="0x000000" text="2015成立"/>
+		<Font id="40003" size="10" color="0x000000" text="2015成立注册资本：10,000万"/>
+	</Fonts>
+	<Nodes>
+		<!-- 人节点 10000开头->
+		<!-- name 和 job对应的是Font的ID-->
+		<Node id="10000" type="person" head="female" name="10000" job="20000" x="20" y="40" />
+		<Node id="10001" type="person" head="man" name="10001" job="20000" x="80" y="40" />
+		<Node id="10002" type="person" head="female" name="10002" job="20001" x="140" y="40" />
+		<Node id="10003" type="person" head="man" name="10003" job="20002" x="200" y="40" />
+		<Node id="10004" type="person" head="man" name="10004" job="20003" x="260" y="40" />
+		<Node id="10005" type="person" head="man" name="10005" job="20004" x="20" y="140" />
+		<Node id="10006" type="person" head="man" name="10006" job="20003" x="80" y="140" />
+		<Node id="10007" type="person" head="man" name="10007" job="20005" x="140" y="140" />
+		<Node id="10008" type="person" head="man" name="10008" job="20005" x="200" y="140" />
+		<Node id="10009" type="person" head="man" name="10009" job="" x="310" y="25" />
+		
+		<!-- 圆圈节点 20000开头->
+		<!-- corp 和 desc 对应的是Font的ID-->
+		<Node id="20000" type="circle" bgColor="0x162c53" borderColor="0x162c53" radius="45" corp="30000" desc="40000" x="360" y="255"/>
+		<Node id="20001" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="40" corp="30001" desc="40001" x="480" y="5"/>
+		<!-- 右上角 -->
+		<Node id="20002" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="35" corp="30002" x="600" y="5"/>
+		<Node id="20003" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="35" corp="30003" x="690" y="5"/>
+		<Node id="20004" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="35" corp="30004"  desc="40002" x="780" y="5"/>
+		<Node id="20005" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="35" corp="30005"  desc="40003" x="870" y="5"/>
+		<Node id="20006" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30" corp="30004"  x="600" y="90"/>
+		<Node id="20007" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30" corp="30004"  x="690" y="90"/>
+		<Node id="20008" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30" corp="30004"  x="780" y="90"/>
+		<Node id="20009" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30" corp="30004"  x="870" y="90"/>
+		
+	</Nodes>
+	<Lines>
+		<Line id="1" fromNode="10000" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="2" fromNode="10001" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="3" fromNode="10002" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="4" fromNode="10003" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="5" fromNode="10004" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="6" fromNode="10005" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="7" fromNode="10006" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="8" fromNode="10007" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="9" fromNode="10008" fx="30" fy="60" toNode="20000" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="10" fromNode="10009" fx="30" fy="45" toNode="20000" tx="45" ty="0" color="0x235F7B" thickness="2" endArrow="true" topDesc="20006" />
+		<Line id="11" fromNode="10009" fx="50" fy="20" toNode="20001" tx="0" ty="40" color="0x235F7B" thickness="2" endArrow="true" topDesc="20007" />
+		<Line id="12" fromNode="20001" fx="40" fy="80" toNode="20000" tx="45" ty="0" color="0x235F7B" thickness="2" endArrow="true"  />
+		
+		<!-- 右上角 -->
+		<Line id="13" fromNode="20000" fx="90" fy="32" toNode="20002" tx="16" ty="66" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="14" fromNode="20000" fx="90" fy="32"toNode="20003" tx="23" ty="69" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="15" fromNode="20000" fx="90" fy="32" toNode="20004" tx="20" ty="69" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="16" fromNode="20000" fx="90" fy="32" toNode="20005" tx="21" ty="67" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="17" fromNode="20000" fx="90" fy="32" toNode="20006" tx="15" ty="56" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="18" fromNode="20000" fx="90" fy="32" toNode="20007" tx="18" ty="58" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="19" fromNode="20000" fx="90" fy="32" toNode="20008" tx="18" ty="59" color="0x235F7B" thickness="1" endArrow="true"  />
+		<Line id="20" fromNode="20000" fx="90" fy="32" toNode="20009" tx="18" ty="59" color="0x235F7B" thickness="1" endArrow="true"  />
+		
+	</Lines>
+</data>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("com.orggraphic.comps.UILine")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			import com.orggraphic.core.vo.LineVO;
+			
+			import mx.events.FlexEvent;
+			import mx.utils.StringUtil;
+			
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+			{
+				super.updateDisplayList(unscaledWidth,unscaledHeight);
+				
+				var lVo:LineVO = hostComponent.lineVo;
+				if(lVo.topDesc != null)
+				{
+					topLbl.visible = true;
+					topLbl.text = lVo.topDesc.text;
+					//topLbl.rotation = lVo.topDesc.rotate;
+					topLbl.setStyle("color",lVo.topDesc.color);
+					topLbl.setStyle("fontSize",lVo.topDesc.size);
+					topLbl.setStyle("fontWeight",StringUtil.trim(lVo.topDesc.weight)!="blod"?"normal":lVo.topDesc.weight);
+					
+					
+//					topLbl.rotation = ;
+				}
+				else
+				{
+					topLbl.visible = false;
+				}
+				
+				if(lVo.bottomDesc != null)
+				{
+					bottomLbl.visible = true;
+					bottomLbl.text = lVo.bottomDesc.text;
+//					bottomLbl.rotation = lVo.bottomDesc.rotate;
+					bottomLbl.setStyle("color",lVo.bottomDesc.color);
+					bottomLbl.setStyle("fontSize",lVo.bottomDesc.size);
+					bottomLbl.setStyle("fontWeight",StringUtil.trim(lVo.topDesc.weight)!="blod"?"normal":lVo.topDesc.weight);
+				}
+				else
+				{
+					bottomLbl.visible = false;
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<s:Label id="topLbl" />
+	<s:Label id="bottomLbl" />
+</s:Skin>

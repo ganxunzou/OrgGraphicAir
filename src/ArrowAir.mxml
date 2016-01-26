@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   creationComplete="windowedapplication1_creationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.orggraphic.MyTriangle;
+			
+			import mx.events.FlexEvent;
+			
+			protected function windowedapplication1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			private var begin:Boolean=false;
+			private var tmp:MyTriangle;
+			private var fromPoint:Point;
+			
+			private function myMouseDownHandler(e:MouseEvent):void
+			{
+				begin=true;
+				fromPoint=new Point(mouseX,mouseY);
+				tmp=new MyTriangle();
+				tmp.Radius=4;
+				tmp.NeedArrow=true;
+				myCanvas.addChild(tmp);
+			}
+			
+			private function myMouseMoveHandler(e:MouseEvent):void
+			{
+				if(begin)
+				{
+					var toPoint:Point=new Point(mouseX,mouseY);
+					tmp.FromPoint=fromPoint;
+					tmp.ToPoint=toPoint;
+					tmp.Draw();
+				}    
+			}
+			
+			private function myMouseOverHandler(e:MouseEvent):void
+			{
+				begin=false;
+			}
+			
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<mx:Canvas  width="100%"  height="100%" id="myCanvas" backgroundColor="0xff0000"  
+				mouseUp="myMouseOverHandler(event)" mouseDown="myMouseDownHandler(event)" 
+				mouseMove="myMouseMoveHandler(event)">
+	</mx:Canvas>
+</s:WindowedApplication>

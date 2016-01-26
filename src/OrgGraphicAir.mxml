@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   width="1024" height="600"
+					   preinitialize="windowedapplication1_preinitializeHandler(event)"
+					   initialize="windowedapplication1_initializeHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.orggraphic.comps.UICircle;
+			import com.orggraphic.comps.UILine;
+			import com.orggraphic.comps.UIPerson;
+			import com.orggraphic.core.parse.GlobalInfo;
+			import com.orggraphic.core.parse.ParseDataXML;
+			import com.orggraphic.core.vo.CircleVO;
+			import com.orggraphic.core.vo.LineVO;
+			import com.orggraphic.core.vo.NodeVO;
+			import com.orggraphic.core.vo.PersonVO;
+			
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			
+			
+			protected function windowedapplication1_preinitializeHandler(event:FlexEvent):void
+			{
+				ParseDataXML.parseXML();
+			}
+			
+			private function drawNode():void
+			{
+				var uiP:UIPerson;
+				var uiC:UICircle;
+				for(var key:String in GlobalInfo.nodeMap)
+				{
+					var nVo:NodeVO = GlobalInfo.nodeMap[key];
+					if(nVo is PersonVO)
+					{
+						uiP = new UIPerson();
+						uiP.personVo = nVo as PersonVO;
+						uiP.x = nVo.x;
+						uiP.y = nVo.y;
+						mainGrp.addElement(uiP);
+					}
+					else
+					{
+						uiC = new UICircle();
+						uiC.circleVo = nVo as CircleVO;
+						uiC.x = nVo.x;
+						uiC.y = nVo.y
+						mainGrp.addElement(uiC);
+					}
+				}
+			}
+			
+			protected function windowedapplication1_initializeHandler(event:FlexEvent):void
+			{
+				
+				//绘制图形
+				drawNode();
+				
+				drawLine();
+			}
+			
+			private function drawLine():void
+			{
+				var uiL:UILine;
+				for (var key:String in GlobalInfo.lineMap)
+				{
+					var lVo:LineVO = GlobalInfo.lineMap[key];
+					uiL = new UILine();
+					uiL.lineVo = lVo;
+					mainGrp.addElement(uiL);
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Scroller width="100%" height="100%" >
+		<s:Group width="100%" height="100%">
+			<s:Group id="mainGrp" />
+		</s:Group>
+	</s:Scroller>
+</s:WindowedApplication>
