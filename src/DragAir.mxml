@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   dragEnter="windowedapplication1_dragEnterHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.core.DragSource;
+			import mx.core.IUIComponent;
+			import mx.core.IVisualElement;
+			import mx.events.DragEvent;
+			import mx.managers.DragManager;
+			protected function txt_mouseDownHandler(e:MouseEvent):void
+			{
+				stage.addEventListener(MouseEvent.MOUSE_MOVE,mouseMoveHanlder);
+				stage.addEventListener(MouseEvent.MOUSE_UP,mouseUpHandler);
+				
+				offsetX = e.localX;
+				offsetY = e.localY;
+//				offsetY = e.stageY;
+				
+				trace(e.stageX,offsetX, e.localX);
+			}
+			
+			private var offsetX:Number;
+			private var offsetY:Number;
+			
+			private function mouseMoveHanlder(e:MouseEvent):void
+			{
+				trace(e.stageX,offsetX);
+				txt.x = e.stageX -offsetX ;
+				txt.y = e.stageY - offsetY;
+			}
+			
+			private function mouseUpHandler(e:MouseEvent):void
+			{
+				stage.removeEventListener(MouseEvent.MOUSE_MOVE,mouseMoveHanlder);
+				stage.removeEventListener(MouseEvent.MOUSE_MOVE,mouseUpHandler);
+			}
+			
+			protected function windowedapplication1_dragEnterHandler(event:DragEvent):void
+			{
+			}
+			
+			protected function txt_mouseUpHandler(event:MouseEvent):void
+			{
+//				txt.stopDrag();
+			}
+			
+			protected function txt_dragCompleteHandler(event:DragEvent):void
+			{
+				trace("dragComplete");
+			}
+			
+			protected function txt_dragOverHandler(event:DragEvent):void
+			{
+				trace("txt_dragOverHandler");
+			}
+			
+			protected function txt_mouseOverHandler(event:MouseEvent):void
+			{
+				trace("txt_mouseOverHandler");
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:TextArea id="txt" mouseDown="txt_mouseDownHandler(event)"/>
+</s:WindowedApplication>

@@ -1,0 +1,111 @@
+抽象表设计
+
+========================================================
+文字表 （COMFONT）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+SIZE		NUMBER		文字大小
+COLOR		STRING		文字颜色
+ROTATE		NUMBER		文字旋转角度
+TEXT		STRING		文字内容
+
+========================================================
+头像表 （COMHEAD）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+SEX		BOOL		头像类型，男OR女
+SIZE		NUMBER		头像大小
+
+========================================================
+节点表 （COMNODE）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+BGCOLOR		STRING		背景颜色
+BORDERCOLOR	STRING		边框颜色
+RADIUS		NUMBER		半径
+FK_CORP_FONT	STRING		外键，公司文字
+FK_DESC_FONT	STRING		外键，公司描述
+FK_HEAD_HEAD	STRING		外键，头像
+FK_JOB_FONT	STRING		外键，职位		
+FK_NAME_FONT	STRING		外键，姓名
+X		NUMBER		X轴坐标
+Y		NUMBER		Y轴坐标
+NODE_TYPE	STRING		节点类型：人 OR 公司
+
+
+========================================================
+线条表 （COMPLINE）
+========================================================
+字段名称		字段类型	字段描述
+ID			INT		主键
+STARTARROW		BOOL		是否有开启箭头
+FK_FROM_NODE		STRING		外键，发起节点
+FROM_X			NUMBER		相对发起节点的绝对X坐标
+FROM_Y			NUMBER		相对发起节点的绝对Y坐标
+FK_TO_NODE		STRING		外键，结束节点
+TO_X			NUMBER		相对结束节点的绝对X坐标
+TO_Y			NUMBER		相对结束节点的绝对Y坐标
+ENDARROW		BOOL		是否有结束箭头
+FK_TOPDESC_FONT		STRING		线上面描述
+FK_BOTTOMDESC_FONT	STRING		线下面描述
+THICKNESS		STRING		线条厚度
+COLOR			STRING		线条颜色
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+另外一种设计，把COMNODE（节点表）查分成圆圈表和人表
+========================================================
+
+
+========================================================
+圆圈表 （COMCIRCLE）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+BGCOLOR		STRING		背景颜色
+BORDERCOLOR	STRING		边框颜色
+RADIUS		NUMBER		大小
+FK_CORP_FONT	STRING		外键，公司文字
+FK_DESC_FONT	STRING		外键，公司描述
+X		NUMBER		X轴坐标
+Y		NUMBER		Y轴坐标
+
+========================================================
+人表 （COMPERSON）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+FK_HEAD_HEAD	STRING		外键，头像
+FK_JOB_FONT	STRING		外键，职位		
+FK_NAME_FONT	STRING		外键，姓名
+X		NUMBER		X轴坐标
+Y		NUMBER		Y轴坐标
+
+========================================================
+线条表 （COMPLINE）
+========================================================
+字段名称	字段类型	字段描述
+ID		INT		主键
+FROM_TYPE	STRING		起始节点类型：圆圈 OR 人
+FK_FROM_NODE	STRING		外键，发起节点
+FROM_X		NUMBER		相对发起节点的绝对X坐标
+FROM_Y		NUMBER		相对发起节点的绝对Y坐标
+TO_TYPE		STRING		结束节点类型：圆圈 OR 人
+FK_TO_NODE	STRING		外键，结束节点
+TO_X		NUMBER		相对结束节点的绝对X坐标
+TO_Y		NUMBER		相对结束节点的绝对Y坐标

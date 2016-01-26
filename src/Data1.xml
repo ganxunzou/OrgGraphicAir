@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<Fonts>
+		<!-- 姓名10000开头 -->
+		<Font id="10000" size="10" color="0xdb8d4f" text="单喆憨"/>
+		
+	</Fonts>
+	<Nodes>
+		<Node id="1" type="circle" bgColor="0xffffff" borderColor="0x9E6844" radius="30"  x="50" y="50"/>
+		<Node id="2" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30"  x="100" y="120"/>
+		<Node id="3" type="circle" bgColor="0xffffff" borderColor="0x235F7B" radius="30"  x="50" y="200"/>
+	</Nodes>
+	<Lines>
+		<Line id="1" fromNode="1" fx="30" fy="60" toNode="2" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		<Line id="2" fromNode="3" fx="30" fy="60" toNode="2" tx="8" ty="20" color="0xbfbfc1" thickness="1" endArrow="true"/>
+		
+	</Lines>
+</data>

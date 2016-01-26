@@ -14,6 +14,7 @@
 			import com.orggraphic.core.vo.PersonVO;
 			
 			import mx.events.FlexEvent;
+			import mx.utils.StringUtil;
 			
 			[Bindable]
 			[Embed(source="assest/imgs/female.png")]
@@ -46,6 +47,7 @@
 					nameLbl.visible = nameLbl.includeInLayout = true;
 					nameLbl.setStyle("color",pVo.name.color);
 					nameLbl.setStyle("fontSize",pVo.name.size);
+					nameLbl.setStyle("fontWeight",StringUtil.trim(pVo.name.weight)=="bold"?"bold":"normal");
 					nameLbl.text = pVo.name.text;
 				}
 				else
@@ -72,7 +74,7 @@
 	</fx:Script>
 	<s:VGroup width="100%" height="100%" horizontalAlign="center" gap="5">
 		<s:Image id="imgHead" source="{manClz}" width="25" height="25"/>
-		<s:Label id="nameLbl" width="100%" textAlign="center"/>
+		<s:Label id="nameLbl" width="100%" textAlign="center" />
 		<s:Label id="jobLbl" width="100%" textAlign="center"/>
 	</s:VGroup>
 </s:Skin>

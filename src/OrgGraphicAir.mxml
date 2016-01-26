@@ -18,7 +18,10 @@
 			import com.orggraphic.core.vo.PersonVO;
 			
 			import mx.controls.Alert;
+			import mx.core.DragSource;
+			import mx.events.DragEvent;
 			import mx.events.FlexEvent;
+			import mx.managers.DragManager;
 			
 			
 			protected function windowedapplication1_preinitializeHandler(event:FlexEvent):void
@@ -39,17 +42,70 @@
 						uiP.personVo = nVo as PersonVO;
 						uiP.x = nVo.x;
 						uiP.y = nVo.y;
+						uiP.addEventListener(MouseEvent.MOUSE_DOWN,uiPMouseDownHandler); 
 						mainGrp.addElement(uiP);
+						
 					}
 					else
 					{
 						uiC = new UICircle();
 						uiC.circleVo = nVo as CircleVO;
 						uiC.x = nVo.x;
-						uiC.y = nVo.y
+						uiC.y = nVo.y;
+						uiC.addEventListener(MouseEvent.MOUSE_DOWN,uiCMouseDownHandler); 
 						mainGrp.addElement(uiC);
+						
 					}
 				}
+			}
+			
+			private var offsetX:Number;
+			private var offsetY:Number;
+			
+			private var cUI:UICircle;
+			private var pUI:UIPerson;
+			private function uiCMouseDownHandler(e:MouseEvent):void
+			{
+				cUI = e.currentTarget as UICircle;
+				doMouseDownHandler(e);
+			}
+			
+			private function doMouseDownHandler(e:MouseEvent):void
+			{
+				stage.addEventListener(MouseEvent.MOUSE_MOVE,uiCMouseMoveHandler);
+				stage.addEventListener(MouseEvent.MOUSE_UP,uiCMouseUpHandler);
+				
+				offsetX = e.localX;
+				offsetY = e.localY;
+			}
+			
+			private function uiPMouseDownHandler(e:MouseEvent):void
+			{
+				pUI = e.currentTarget as UIPerson;
+				doMouseDownHandler(e);
+			}
+			
+			private function uiCMouseMoveHandler(e:MouseEvent):void
+			{
+				if(cUI)
+				{
+					cUI.x = e.stageX - offsetX;
+					cUI.y = e.stageY - offsetY;
+				}
+				else if(pUI)
+				{
+					pUI.x = e.stageX - offsetX;
+					pUI.y = e.stageY - offsetY;
+				}
+			
+			}
+			
+			private function uiCMouseUpHandler(e:MouseEvent):void
+			{
+				stage.removeEventListener(MouseEvent.MOUSE_MOVE,uiCMouseMoveHandler);
+				stage.removeEventListener(MouseEvent.MOUSE_UP,uiCMouseUpHandler);
+				cUI = null;
+				pUI = null;
 			}
 			
 			protected function windowedapplication1_initializeHandler(event:FlexEvent):void
@@ -73,14 +129,19 @@
 				}
 			}
 			
+			protected function mainGrp_dragEnterHandler(event:DragEvent):void
+			{
+				DragManager.acceptDragDrop((event.currentTarget as UICircle));
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
 		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
 	</fx:Declarations>
 	<s:Scroller width="100%" height="100%" >
-		<s:Group width="100%" height="100%">
-			<s:Group id="mainGrp" />
-		</s:Group>
+		<s:VGroup width="100%" height="100%" paddingBottom="50">
+			<s:Group id="mainGrp" dragEnter="mainGrp_dragEnterHandler(event)" />
+		</s:VGroup>
 	</s:Scroller>
 </s:WindowedApplication>

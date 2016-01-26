@@ -1,0 +1,5 @@
+未完善的功能点：
+1. endArrow 只支持第四象限（查看象限.png）
+2. startArrow 都不支持
+3. topDesc的位置和buttomDesc的位置，只有在第三和第四象限中设置。第三象限topDesc的文字是反向的。
+4. 不支持人头像大小设置。

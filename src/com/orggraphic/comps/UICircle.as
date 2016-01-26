@@ -13,6 +13,7 @@ package com.orggraphic.comps
 	public class UICircle extends SkinnableComponent
 	{
 	
+		[Bindable]
 		private var _circleVo:CircleVO;
 		
 		
@@ -40,8 +41,22 @@ package com.orggraphic.comps
 			}
 		}
 		
+		override public function set x(value:Number):void
+		{
+			_circleVo.x = value;
+			super.x = value;
+		}
+		
+		override public function set y(value:Number):void
+		{
+			_circleVo.y = value;
+			super.y = value;
+		}
+		
 		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
 		{
+			trace("CirCle updateDisplayList");
+			
 			var w:Number = _circleVo.radius * 2;
 			var h:Number = _circleVo.radius * 2;
 			setActualSize(w,h);

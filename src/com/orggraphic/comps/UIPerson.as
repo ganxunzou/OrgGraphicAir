@@ -24,6 +24,18 @@ package com.orggraphic.comps
 		{
 			return _personVo;
 		}
+		
+		override public function set x(value:Number):void
+		{
+			_personVo.x = value;
+			super.x = value;
+		}
+		
+		override public function set y(value:Number):void
+		{
+			_personVo.y = value;
+			super.y = value;
+		}
 
 		public function set personVo(value:PersonVO):void
 		{
